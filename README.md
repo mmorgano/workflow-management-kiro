@@ -72,9 +72,8 @@ If you use a **custom agent**, note that custom agents do not load skills by
 default: add the skills to the agent's `resources` with `skill://` entries (see the
 [Kiro documentation](https://kiro.dev/docs/skills/)).
 
-Optional but recommended: also copy `.kiro/steering/workflow-management.md` into
-your workspace `.kiro/steering/` (or `~/.kiro/steering/`). It is a short
-always-on reminder that helps assistants notice the skill and stay within it.
+Optional: if the assistant tends to ignore the skill, also add the
+[steering file](#optional-steering-file).
 
 Then open a new Kiro chat. The most reliable way to start is to type
 `/workflow-management` and pick the skill from the list, then say:
@@ -92,6 +91,42 @@ up, start it with the slash command.
 The assistant introduces itself, asks which language to use, and creates your
 personal context. If the team skill is installed, it also asks whether you want a
 shared team context.
+
+## Optional steering file
+
+`.kiro/steering/workflow-management.md` is a short [Kiro steering
+file](https://kiro.dev/docs/steering/) with `inclusion: always`: Kiro adds it to
+every chat in the workspace where it is installed. It repeats five rules:
+
+1. asking to start, continue, or close a "session" means using the
+   `workflow-management` skill, not Kiro's own chat session;
+2. if more than one person works on the project, use `team-workflow-management`
+   too, after the personal context exists;
+3. read the skill's `references/` files from the skill's own folder, never by
+   searching the workspace;
+4. create workflow records only: no project folders, virtual environments, or Git
+   repositories unless asked;
+5. ask before writing, one question at a time.
+
+**Why it exists.** Kiro picks a skill from its description, and how well that
+works depends on the model. In the author's first tests a Claude model activated
+the skill on its own; DeepSeek skipped it, read "session" as Kiro's own session,
+and created folders nobody asked for. The steering file is a second reminder for
+models that need one.
+
+**Why it is optional.**
+
+- The skill works without it, and models that follow instructions do not need it.
+- It is loaded into **every** chat, so it adds a little text to each request,
+  including ordinary coding chats that have nothing to do with workflow.
+- Installed in `~/.kiro/steering/` it applies to all your workspaces. Prefer the
+  workspace `.kiro/steering/` unless you want it everywhere.
+- It has **not been tested yet**: it follows the documented steering format, but
+  nobody has checked how much it helps. Your feedback on this is especially
+  welcome.
+
+To use it, copy the file into `.kiro/steering/` of your workspace. To stop using
+it, delete that file.
 
 ## Known issue: write errors on Windows
 
