@@ -72,11 +72,22 @@ If you use a **custom agent**, note that custom agents do not load skills by
 default: add the skills to the agent's `resources` with `skill://` entries (see the
 [Kiro documentation](https://kiro.dev/docs/skills/)).
 
-Then open a new Kiro session and say:
+Optional but recommended: also copy `.kiro/steering/workflow-management.md` into
+your workspace `.kiro/steering/` (or `~/.kiro/steering/`). It is a short
+always-on reminder that helps assistants notice the skill and stay within it.
+
+Then open a new Kiro chat. The most reliable way to start is to type
+`/workflow-management` and pick the skill from the list, then say:
 
 ```text
 Initialize workflow management for this workspace.
 ```
+
+Skills are chosen by the model from their descriptions, so results depend on the
+model. In the author's first tests a Claude model offered the skill right away,
+while DeepSeek often skipped it, treated "session" as Kiro's own session, and
+created project folders nobody asked for. If the assistant does not pick the skill
+up, start it with the slash command.
 
 The assistant introduces itself, asks which language to use, and creates your
 personal context. If the team skill is installed, it also asks whether you want a

@@ -1,6 +1,6 @@
 ---
 name: workflow-management
-description: Maintain durable, file-based work context across AI sessions, including session logs, RECAP, workflow tasks, sprints, saved notes, meeting outcomes, roadmaps, and archives. Use when the user asks to start or close a managed work session, to preserve, resume, or organize context beyond the current conversation, or to start a new project, repository, or component from scratch. Do not use for ordinary coding or one-off questions with no request for durable records.
+description: Maintain durable, file-based work context across AI sessions, including session logs, RECAP, workflow tasks, sprints, saved notes, meeting outcomes, roadmaps, and archives. Use when the user asks to start, resume, or close a work session ("start a session", "new work session", "job session", "start of the day", "where did we leave off"), to preserve, resume, or organize context beyond the current conversation, or to start a new project, repository, or component from scratch. A work session here is recorded in files in the context folder; it is not Kiro's own chat session. Do not use for ordinary coding or one-off questions with no request for durable records.
 ---
 
 # Workflow Management for Kiro
@@ -12,6 +12,29 @@ review, session archives, or bootstrapping a new repository or component. A
 request to start a managed work session must activate this workflow instead of
 becoming a general workspace analysis. Do not turn an ordinary coding request,
 one-off explanation, or transient to-do list into workflow records.
+
+## Where this skill's files are
+
+The files named below (`CORE.md`, `conventions.md`, `references/...`) sit in the
+folder that contains this `SKILL.md`: `.kiro/skills/workflow-management/` in the
+workspace, or `~/.kiro/skills/workflow-management/` in the user's home folder.
+Read them from there with the file-read tool. Do not search the workspace for
+them, and do not conclude that they are missing before trying both places.
+
+## What this skill never does
+
+It creates workflow records only: the context folder, `.workflow-config.json`,
+`RECAP.md`, `tasks/`, `sessions/` and similar. Do not create project scaffolding
+(`src/`, `docs/`, `tests/`, `scripts/`), virtual environments, other
+configuration files, or a Git repository unless the user asks for them.
+
+## In Kiro, "session" is ambiguous
+
+When the user asks to start, continue, or close a "session", "job session", or
+"work session", this is that request: follow this skill. Do not answer with
+Kiro's own session update, and do not turn it into a general question about what
+to build. If it is truly unclear, ask one short question that names this skill as
+the first option.
 
 Before changing the workflow context:
 

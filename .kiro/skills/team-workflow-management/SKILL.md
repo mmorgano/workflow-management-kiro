@@ -14,6 +14,29 @@ of the `workflow-management` skill and never replaces it: each person keeps a
 **personal** context, and the team keeps one **shared** context. The shared
 context is deliberately small.
 
+## Where this skill's files are
+
+`references/...` sit in the folder that contains this `SKILL.md`:
+`.kiro/skills/team-workflow-management/` in the workspace, or
+`~/.kiro/skills/team-workflow-management/` in the user's home folder. Read them
+from there with the file-read tool. Do not search the workspace for them, and do
+not conclude that they are missing before trying both places.
+
+## Order of work
+
+1. **Personal context first.** Before any team step, make sure a personal context
+   resolves (`workflow-management`, `CORE.md`). If none does, stop here, load
+   `workflow-management`, and create the personal context first. Then come back.
+2. **Read `references/team-setup.md`** before creating anything.
+3. **The team context is a separate Git repository**, in a folder **beside** the
+   project and the personal context, named `ai_context_TEAM_<prj_name>`. Never
+   create it inside the project folder or inside another repository, and never
+   create it in a folder that already is a Git repository: it will hold names and
+   email addresses.
+4. This skill creates workflow records only. Do not create project scaffolding
+   (`src/`, `docs/`, `tests/`), virtual environments, or configuration files other
+   than the team `.workflow-config.json` described in `team-setup.md`.
+
 ## The model
 
 - **Personal context** (`ai_context_<name>`): your sessions, notes, focus,
