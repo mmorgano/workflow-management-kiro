@@ -1,6 +1,6 @@
 ---
 name: team-workflow-management
-description: EXPERIMENTAL, untested beta. Manage a shared team context alongside a personal workflow context, including a shared roadmap, unassigned and assigned tasks, task outcomes such as duplicates, coordinators, and synchronization through Git. Use when a team shares work, when a shared task or roadmap must change, or when the user wants to create or join a team context.
+description: EXPERIMENTAL, untested beta. Manage a shared team context alongside a personal workflow context, including a shared roadmap, unassigned and assigned tasks, task outcomes such as duplicates, coordinators, and synchronization through Git. Use when the user says they work with colleagues or in a team, when a team shares work, when a shared task or roadmap must change, or when the user wants to create or join a team context.
 ---
 
 # Team Workflow Management

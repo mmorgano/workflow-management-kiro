@@ -62,6 +62,13 @@ not installed, ignore this section and behave exactly as described above.
 
 When it is installed:
 
+- **Team signals: act on them.** If the user says or implies that more than one
+  person works on this project ("we are three", "my colleagues", "our team",
+  "shared tasks", "assign this to ..."), do not carry on with a personal-only
+  setup. In that same turn read the `team-workflow-management` skill and follow
+  its setup questions. This applies even if the personal context already exists
+  and even if the user never says "team context". Skipping it silently is a
+  mistake: at least tell the user the team option exists and ask.
 - **What is a team context.** A folder is a team context when its
   `.workflow-config.json` has `"role": "team"`, **or** when its name starts with
   `ai_context_TEAM_` and it is a Git repository, even if its configuration is
@@ -83,8 +90,8 @@ When it is installed:
 - **Privacy boundary.** Sessions, `LAST_SESSION.md`, focus notes, and the
   personal `RECAP.md` stay in the personal context. Never write them into a team
   context.
-- **Onboarding.** After step 4 of `references/onboarding.md`, ask the team
-  question described in
+- **Onboarding.** This step is mandatory when the team skill is installed. After
+  step 4 of `references/onboarding.md`, ask the team question described in
   `../team-workflow-management/references/team-setup.md`. That reference says
   the core edition creates a personal context only; in this edition the team
   question replaces that sentence. A person who already has a personal context
