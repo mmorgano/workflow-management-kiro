@@ -11,7 +11,7 @@ and adds an **optional team mode**: a small shared context for a roadmap, tasks,
 and assignments, next to your own personal context.
 
 [MGM Garage Lab](https://mgmgaragelab.com/) ·
-[Project website](https://mgmgaragelab.com/workflow-management/) ·
+[Project website](https://mgmgaragelab.com/workflow-management-skill/) ·
 [Core skill (Claude Code, Codex)](https://github.com/mmorgano/workflow-management-skill)
 
 An open-source project by [MGM Garage Lab](https://mgmgaragelab.com/).
