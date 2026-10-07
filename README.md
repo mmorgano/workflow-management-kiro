@@ -46,9 +46,12 @@ An open-source project by [MGM Garage Lab](https://mgmgaragelab.com/).
   dedicated Git repository holding the roadmap, unassigned tasks, and
   assignments. Personal notes never go there.
 - **`contacts-workflow-management`** (new, untested) — an optional private address
-  book (`CONTACTS.md`, in your personal context only) with verified tracker
-  usernames, homonym warnings, and message templates for drafting mails or ticket
-  comments. It only drafts text; it never sends anything.
+  book (`CONTACTS.md`, in your personal context only) with five standard fields
+  (name, username, role, email, notes) that you can extend with your own columns.
+  It reads your layout, merges data without deleting anything, never guesses a
+  username, and drafts mails or ticket comments from your templates. Your
+  preferences live in a separate `CONTACTS.config.json`, so updating the skill
+  never loses them. It only drafts text; it never sends anything.
 
 Solo users install only `workflow-management`.
 
@@ -231,7 +234,8 @@ repository. `CORE_VERSION` records the core commit they come from.
 Your personal contexts must stay private. Never put a personal context in a
 shared or public repository. The team context is the only one meant to be shared,
 and it holds no personal records. `CONTACTS.md` holds names and emails: it lives
-only in the personal context and is never written to the team context.
+only in the personal context, together with `CONTACTS.config.json`, and is never
+written to the team context.
 
 The contacts skill exists only in this package: it is not part of the core, so
 `sync-from-core.sh` does not copy or check it.

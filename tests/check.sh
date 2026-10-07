@@ -53,19 +53,19 @@ done
 for skill in .kiro/skills/*/SKILL.md; do
     dir="$(dirname "$skill")"
     tpls="$(tr -d '\r' < "$skill" | tr '\n' ' ' | sed 's/ \+/ /g' \
-        | grep -oE 'templates/[A-Za-z0-9._-]+\.md' | sort -u || true)"
+        | grep -oE 'templates/[A-Za-z0-9._-]+\.(md|json)' | sort -u || true)"
     for tpl in $tpls; do
         [[ -f "$dir/$tpl" ]] || { echo "ERROR: $skill mentions missing $tpl" >&2; exit 1; }
     done
 done
 
-# CONTACTS.md holds personal data: only the fictional starter template may be
-# tracked in this package, and never anywhere else.
+# CONTACTS.md and CONTACTS.config.json hold personal data: only the fictional
+# starter templates may be tracked in this package, and never anywhere else.
 stray="$(git ls-files --cached --others --exclude-standard \
-    | grep -E '(^|/)CONTACTS\.md$' \
-    | grep -vx '\.kiro/skills/contacts-workflow-management/templates/CONTACTS\.md' || true)"
+    | grep -E '(^|/)CONTACTS(\.config\.json|\.md)$' \
+    | grep -vE '^\.kiro/skills/contacts-workflow-management/templates/CONTACTS(\.config\.json|\.md)$' || true)"
 if [[ -n "$stray" ]]; then
-    echo "ERROR: CONTACTS.md must not be part of this package: $stray" >&2
+    echo "ERROR: CONTACTS files must not be part of this package: $stray" >&2
     exit 1
 fi
 

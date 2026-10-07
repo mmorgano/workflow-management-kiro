@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "mention_format": "@{username}",
+  "default_template": "default",
+  "templates": {
+    "default": {
+      "purpose": "everyday mail or ticket comment",
+      "greeting": "Dear {recipient},",
+      "signoff": "Best regards,\n{sender}",
+      "tone": "brief, neutral"
+    }
+  }
+}
