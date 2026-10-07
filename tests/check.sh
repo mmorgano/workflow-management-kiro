@@ -50,4 +50,23 @@ for skill in .kiro/skills/*/SKILL.md; do
     done
 done
 
+for skill in .kiro/skills/*/SKILL.md; do
+    dir="$(dirname "$skill")"
+    tpls="$(tr -d '\r' < "$skill" | tr '\n' ' ' | sed 's/ \+/ /g' \
+        | grep -oE 'templates/[A-Za-z0-9._-]+\.md' | sort -u || true)"
+    for tpl in $tpls; do
+        [[ -f "$dir/$tpl" ]] || { echo "ERROR: $skill mentions missing $tpl" >&2; exit 1; }
+    done
+done
+
+# CONTACTS.md holds personal data: only the fictional starter template may be
+# tracked in this package, and never anywhere else.
+stray="$(git ls-files --cached --others --exclude-standard \
+    | grep -E '(^|/)CONTACTS\.md$' \
+    | grep -vx '\.kiro/skills/contacts-workflow-management/templates/CONTACTS\.md' || true)"
+if [[ -n "$stray" ]]; then
+    echo "ERROR: CONTACTS.md must not be part of this package: $stray" >&2
+    exit 1
+fi
+
 echo "Kiro package checks passed."

@@ -45,6 +45,10 @@ An open-source project by [MGM Garage Lab](https://mgmgaragelab.com/).
 - **`team-workflow-management`** (experimental) — the optional team layer: a shared context in a
   dedicated Git repository holding the roadmap, unassigned tasks, and
   assignments. Personal notes never go there.
+- **`contacts-workflow-management`** (new, untested) — an optional private address
+  book (`CONTACTS.md`, in your personal context only) with verified tracker
+  usernames, homonym warnings, and message templates for drafting mails or ticket
+  comments. It only drafts text; it never sends anything.
 
 Solo users install only `workflow-management`.
 
@@ -65,6 +69,7 @@ Copy the skill folders you want into a Kiro skills folder:
 ```text
 .kiro/skills/workflow-management/            # personal skill (required)
 .kiro/skills/team-workflow-management/       # team layer (optional)
+.kiro/skills/contacts-workflow-management/   # contacts layer (optional, Kiro only)
 ```
 
 Use the workspace `.kiro/skills/` of your project (shared with the team when
@@ -219,7 +224,11 @@ repository. `CORE_VERSION` records the core commit they come from.
 
 Your personal contexts must stay private. Never put a personal context in a
 shared or public repository. The team context is the only one meant to be shared,
-and it holds no personal records.
+and it holds no personal records. `CONTACTS.md` holds names and emails: it lives
+only in the personal context and is never written to the team context.
+
+The contacts skill exists only in this package: it is not part of the core, so
+`sync-from-core.sh` does not copy or check it.
 
 ## License
 

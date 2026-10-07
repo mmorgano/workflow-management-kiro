@@ -13,6 +13,9 @@ skill is installed. They exist because assistants sometimes skip the skill.
 - If the user says more than one person works on the project ("we are three",
   "my colleagues", "our team"), use `team-workflow-management` as well, after the
   personal context exists.
+- If the user asks to add or look up a contact, to mention a colleague by name, or
+  to draft a mail or ticket comment to someone, use `contacts-workflow-management`
+  as well, after the personal context exists. Never guess a username.
 - Read the skill's `references/` files from the skill's own folder
   (`.kiro/skills/<name>/` in the workspace or `~/.kiro/skills/<name>/` at home).
   Never search the workspace for them.
