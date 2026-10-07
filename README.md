@@ -190,20 +190,26 @@ Use a scratch folder, not real work.
    skill must *not* start a workflow. Then say "start a work session".
 3. **First run in an empty folder:** the introduction is offered and can be
    skipped, the language is asked once, the context is created.
-4. **Without the team skill installed,** everything behaves as in the personal
+4. **No workspace open:** start Kiro with no folder open (or on a bare folder
+   opened as a plain directory) and say "start a work session". It must say in
+   one sentence that no workspace is open and offer to open a workspace folder
+   first (recommended) or to use an explicit path, reading and creating nothing
+   until you answer. With a path, the context is created with `-Here` and no
+   `context-path.json` is written.
+5. **Without the team skill installed,** everything behaves as in the personal
    edition.
-5. **Team mode, with a scratch team repository:** create a team context, then check
+6. **Team mode, with a scratch team repository:** create a team context, then check
    these cases: personal + team folder open (the personal one is used, no
    question); only the team folder open (offers to create a personal context and
    records nothing in the team one); two personal folders (asks which).
-6. **Privacy:** ask it to save a personal note in the team context. It must refuse.
+7. **Privacy:** ask it to save a personal note in the team context. It must refuse.
    `git status` in the team folder must never list `sessions/` or `focus/`.
-7. **Two people (or two clones):** assign the same task from both. Only the first
+8. **Two people (or two clones):** assign the same task from both. Only the first
    push wins; the second person is told it is taken.
-8. **Git problems:** with no Git, no network, or a wrong login, the assistant says
+9. **Git problems:** with no Git, no network, or a wrong login, the assistant says
    what to do by hand and does not guess credentials.
-9. **Confirmations:** check that Kiro really asks before a push.
-10. Run `tests/check.sh` on your platform (Linux, macOS, Git Bash on Windows).
+10. **Confirmations:** check that Kiro really asks before a push.
+11. Run `tests/check.sh` on your platform (Linux, macOS, Git Bash on Windows).
 
 Please write down what surprised you: which words were confusing, where you
 got lost, what you expected instead, and open an issue with it.

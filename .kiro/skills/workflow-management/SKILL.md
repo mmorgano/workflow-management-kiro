@@ -74,8 +74,12 @@ users.
 
 Follow the context resolution order in `CORE.md`. Do not infer the context by
 broadly analyzing the workspace, and never attach a context that belongs to a
-different workspace. If nothing resolves, follow `references/sessions.md`
-§ "When no context resolves".
+different workspace. If no workspace is open at all (no folder, or only a plain
+directory that was not opened as a workspace) and the order resolves nothing,
+follow `references/sessions.md` § "No workspace at all" first: say so in one
+sentence, offer to open a workspace folder or to use an explicit path, and create
+nothing until the user answers. If nothing resolves, follow
+`references/sessions.md` § "When no context resolves".
 
 ## Team support (optional)
 
